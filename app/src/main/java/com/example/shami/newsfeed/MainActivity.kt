@@ -9,11 +9,12 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.*
-import com.example.shami.newsfeed.ZemaPojo.ApiClient
+import com.example.shami.newsfeed.ZemaPojo.NewsService
 import com.example.shami.newsfeed.ZemaPojo.Response.results
 import com.example.shami.newsfeed.ZemaPojo.applySchedulersKotlin
 import io.reactivex.disposables.Disposable
 import java.util.*
+import javax.inject.Inject
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,9 +28,16 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var disposable: Disposable
 
+
+    @Inject
+    lateinit var mNewsService: NewsService
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        (application as NewsApplication).getComponent().inject(this)
 
 
         listView = findViewById(R.id.list) as ListView
@@ -54,11 +62,25 @@ class MainActivity : AppCompatActivity() {
         if (isConnected) {
             progressBar.visibility = View.VISIBLE
 
-            disposable=ApiClient.newApiClientInstance.getServerAPI().getNews("politics/politics","2014-01-01","test")
+//            disposable=ApiClient.newApiClientInstance.getServerAPI().getNews("politics/politics","2014-01-01","test")
+//                    .compose(applySchedulersKotlin())
+//                    .subscribe(
+//                            { result ->
+//                                 setList(result.response.results)
+//                            },
+//                            { error ->
+//                                Toast.makeText(this,error.message,Toast.LENGTH_SHORT).show()
+//                                Log.d("Error",error.message)
+//                                progressBar.visibility = View.GONE
+//                            }
+//                    )
+//
+
+            disposable=mNewsService.getNews("politics/politics","2014-01-01","test")
                     .compose(applySchedulersKotlin())
                     .subscribe(
                             { result ->
-                                 setList(result.response.results)
+                                setList(result.response.results)
                             },
                             { error ->
                                 Toast.makeText(this,error.message,Toast.LENGTH_SHORT).show()
@@ -66,6 +88,8 @@ class MainActivity : AppCompatActivity() {
                                 progressBar.visibility = View.GONE
                             }
                     )
+
+
 
 
         } else {
