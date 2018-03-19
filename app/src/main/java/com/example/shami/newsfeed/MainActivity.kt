@@ -58,7 +58,6 @@ class MainActivity : AppCompatActivity() {
                     .compose(applySchedulersKotlin())
                     .subscribe(
                             { result ->
-                                val newsData=result
                                  setList(result.response.results)
                             },
                             { error ->

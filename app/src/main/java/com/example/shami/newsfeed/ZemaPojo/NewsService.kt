@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 /**
- * Created by Ehitshamshami on 3/8/2018.
+ * Created by Ehtisham Shami on 3/8/2018.
  */
 
 interface NewsService
