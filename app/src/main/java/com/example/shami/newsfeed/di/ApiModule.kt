@@ -11,6 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 
 /**
  * Created by Ehitshamshami on 3/19/2018.
@@ -25,6 +26,7 @@ class ApiModule(val application: Application)
  Header Initialization
  */
     @Provides
+    @Singleton
     fun getHeaders(): HashMap<String, String> {
         val params = HashMap<String, String>()
         params.put("Content-Type", "application/json")
@@ -33,6 +35,7 @@ class ApiModule(val application: Application)
 
 
     @Provides
+    @Singleton
     protected fun provideOkHttpClientDefault(interceptor: HttpLoggingInterceptor,headers:HashMap<String,String>,timeout:Int): OkHttpClient {
         val okBuilder = OkHttpClient.Builder()
         okBuilder.addInterceptor(interceptor)
@@ -58,6 +61,7 @@ class ApiModule(val application: Application)
     }
 
     @Provides
+    @Singleton
     protected fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
@@ -78,6 +82,7 @@ class ApiModule(val application: Application)
 
 
     @Provides
+    @Singleton
     fun provideRetrofitBuilder(okHttpClient: OkHttpClient):Retrofit
     {
         val builder = Retrofit.Builder()

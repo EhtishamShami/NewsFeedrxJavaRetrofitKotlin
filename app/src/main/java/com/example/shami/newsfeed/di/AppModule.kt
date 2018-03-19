@@ -32,6 +32,7 @@ class AppModule(var application: Application)
     }
 
     @Provides
+    @Singleton
     fun getServerApi(retrofit: Retrofit): NewsService
     {
         return retrofit.create(NewsService::class.java)
