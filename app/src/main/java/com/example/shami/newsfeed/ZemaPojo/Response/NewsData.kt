@@ -1,4 +1,4 @@
-package com.example.shami.newsfeed.ZemaPojo.Response
+package com.example.shami.newsfeed.zemapojo.response
 
 /**
  * Created by Ehitshamshami on 3/8/2018.
@@ -15,7 +15,7 @@ data class NewsData(
         val currentPage:Int,
         val pages:Int,
         val orderBy:String,
-        val results:List<results>
+        val results:List<Results>
 )
 
 

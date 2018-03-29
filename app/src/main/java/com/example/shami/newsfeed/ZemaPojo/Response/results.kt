@@ -1,11 +1,11 @@
-package com.example.shami.newsfeed.ZemaPojo.Response
+package com.example.shami.newsfeed.zemapojo.response
 
 /**
  * Created by Ehitshamshami on 3/8/2018.
  */
 
 
-data class results(val id:String,
+data class Results(val id:String,
                    val type:String,
                    val sectionId:String,
                    val sectionName:String,

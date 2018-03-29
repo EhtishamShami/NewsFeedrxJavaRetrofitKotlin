@@ -4,7 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
-import com.example.shami.newsfeed.ZemaPojo.NewsService
+import com.example.shami.newsfeed.zemapojo.NewsService
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit

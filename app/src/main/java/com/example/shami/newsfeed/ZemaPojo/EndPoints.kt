@@ -1,4 +1,4 @@
-package com.example.shami.newsfeed.ZemaPojo
+package com.example.shami.newsfeed.zemapojo
 
 /**
  * Created by Ehitshamshami on 3/8/2018.

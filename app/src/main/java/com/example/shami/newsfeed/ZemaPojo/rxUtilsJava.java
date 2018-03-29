@@ -1,4 +1,4 @@
-package com.example.shami.newsfeed.ZemaPojo;
+package com.example.shami.newsfeed.zemapojo;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
@@ -10,7 +10,7 @@ import io.reactivex.schedulers.Schedulers;
  * Created by Ehitshamshami on 3/9/2018.
  */
 
-public class rxUtilsJava  {
+public class RxUtilsJava {
 
     private static ObservableTransformer ioToMainThreadSchedulerTransformer;
 

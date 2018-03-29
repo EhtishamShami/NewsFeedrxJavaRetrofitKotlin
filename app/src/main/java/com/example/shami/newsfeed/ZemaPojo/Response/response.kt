@@ -1,6 +1,6 @@
-package com.example.shami.newsfeed.ZemaPojo.Response
+package com.example.shami.newsfeed.zemapojo.response
 
 /**
  * Created by Ehitshamshami on 3/9/2018.
  */
-data class response(val response:NewsData)
+data class Response(val response:NewsData)

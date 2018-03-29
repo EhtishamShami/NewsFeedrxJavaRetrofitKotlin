@@ -1,4 +1,4 @@
-package com.example.shami.newsfeed
+package com.example.shami.newsfeed.mainactivity
 
 import android.content.Context
 import android.content.Intent
@@ -9,9 +9,12 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.*
-import com.example.shami.newsfeed.ZemaPojo.NewsService
-import com.example.shami.newsfeed.ZemaPojo.Response.results
-import com.example.shami.newsfeed.ZemaPojo.applySchedulersKotlin
+import com.example.shami.newsfeed.NewsAdapter
+import com.example.shami.newsfeed.NewsApplication
+import com.example.shami.newsfeed.R
+import com.example.shami.newsfeed.zemapojo.NewsService
+import com.example.shami.newsfeed.zemapojo.applySchedulersKotlin
+import com.example.shami.newsfeed.zemapojo.response.Results
 import io.reactivex.disposables.Disposable
 import java.util.*
 import javax.inject.Inject
@@ -37,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        (application as NewsApplication).getComponent().inject(this)
+        (application as NewsApplication).createMainActivityComponent().inject(this)
 
 
         listView = findViewById(R.id.list) as ListView
@@ -66,7 +69,7 @@ class MainActivity : AppCompatActivity() {
 //                    .compose(applySchedulersKotlin())
 //                    .subscribe(
 //                            { result ->
-//                                 setList(result.response.results)
+//                                 setList(result.Response.Results)
 //                            },
 //                            { error ->
 //                                Toast.makeText(this,error.message,Toast.LENGTH_SHORT).show()
@@ -74,7 +77,7 @@ class MainActivity : AppCompatActivity() {
 //                                progressBar.visibility = View.GONE
 //                            }
 //                    )
-//
+
 
             disposable=mNewsService.getNews("politics/politics","2014-01-01","test")
                     .compose(applySchedulersKotlin())
@@ -107,7 +110,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    internal fun setList(newsfeeds: List<results>?) {
+    internal fun setList(newsfeeds: List<Results>?) {
         progressBar.visibility = View.GONE
         notfound.setText(R.string.no_news)
         newsAdapter.clear()

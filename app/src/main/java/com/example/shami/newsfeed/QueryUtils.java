@@ -82,7 +82,7 @@ public static final String Log_Tag=QueryUtils.class.getSimpleName();
         }
         catch (IOException e)
         {
-            Log.e(Log_Tag,"Error response code: " + connection.getResponseCode());
+            Log.e(Log_Tag,"Error Response code: " + connection.getResponseCode());
         }
         finally {
             if (connection != null) {
@@ -127,8 +127,8 @@ public static final String Log_Tag=QueryUtils.class.getSimpleName();
 
         try {
             JSONObject object=new JSONObject(JSON_RESPONSE);
-            JSONObject response=object.getJSONObject("response");
-            JSONArray  results=response.getJSONArray("results");
+            JSONObject response=object.getJSONObject("Response");
+            JSONArray  results=response.getJSONArray("Results");
 
             for(int i=0;i<results.length();i++)
             {
@@ -144,7 +144,7 @@ public static final String Log_Tag=QueryUtils.class.getSimpleName();
 
 
         } catch (JSONException e) {
-             Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
+             Log.e("QueryUtils", "Problem parsing the earthquake JSON Results", e);
         }
 
         // Return the list of earthquakes

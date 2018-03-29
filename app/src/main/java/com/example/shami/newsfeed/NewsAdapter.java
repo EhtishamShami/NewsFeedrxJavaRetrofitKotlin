@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.shami.newsfeed.ZemaPojo.Response.results;
+import com.example.shami.newsfeed.zemapojo.response.Results;
 
 import java.util.List;
 
@@ -16,10 +16,9 @@ import java.util.List;
  * Created by Shami on 1/23/2017.
  */
 
-public class NewsAdapter extends ArrayAdapter<results> {
+public class NewsAdapter extends ArrayAdapter<Results> {
 
-    public NewsAdapter(Context context, List<results> newsfeeds){
-
+    public NewsAdapter(Context context, List<Results> newsfeeds){
         super(context,0,newsfeeds);
     }
 
@@ -29,14 +28,13 @@ public class NewsAdapter extends ArrayAdapter<results> {
         View listView=convertView;
 
 
-
         if(listView==null)
         {
           listView= LayoutInflater.from(getContext()).inflate(R.layout.news_list_item,parent,false);
         }
 
 
-        results newsfeed=getItem(position);
+        Results newsfeed=getItem(position);
 
         TextView sectionName=(TextView) listView.findViewById(R.id.sectionName);
         sectionName.setText(newsfeed.getSectionName());

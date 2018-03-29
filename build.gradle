@@ -11,6 +11,8 @@ buildscript {
         moshiKotlinVersion="1.5.0"
         okhttpVersion="3.10.0"
         daggerVersion="2.11"
+        mockitoCoreVersion="1.10.19"
+        dexmaker="1.2"
     }
     repositories {
         jcenter()
@@ -18,7 +20,6 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

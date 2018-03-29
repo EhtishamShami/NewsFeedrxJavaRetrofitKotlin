@@ -1,4 +1,4 @@
-package com.example.shami.newsfeed.ZemaPojo
+package com.example.shami.newsfeed.zemapojo
 
 import io.reactivex.Observable
 import io.reactivex.ObservableSource
